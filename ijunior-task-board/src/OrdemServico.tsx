@@ -1,4 +1,4 @@
-type Status = "aberto" | "em andamento" | "finalizado";
+type Status = "ABERTO" | "FINALIZADO";
 export interface OrdemServico{
     nome: string;
     modelo: string;
