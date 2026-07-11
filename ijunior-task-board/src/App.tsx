@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { OrdemServico } from "./OrdemServico";
 import ServiceCard from "./components/ServiceCard";
-import Header from "./components/header";
+import Header from "./components/Header";
+import NewServiceForm from "./components/NewServiceForm";
 
 
 const teste: OrdemServico = {
@@ -16,8 +17,7 @@ const teste2: OrdemServico={
   modelo: 'ipod',
   defeito: 'sem memoria',
   status: 'FINALIZADO'
-
-}
+};
 
 export function App() {
   
@@ -28,7 +28,9 @@ export function App() {
       <Header />
       {ordens.map((ordem) => (
         <ServiceCard key={ordem.nome}{...ordem} />
-      ))}
+        ))
+      }
+      <NewServiceForm />
     </>
   );
 }
