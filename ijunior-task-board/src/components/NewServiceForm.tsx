@@ -3,16 +3,24 @@ import type { OrdemServico } from "../OrdemServico";
 import { useState } from "react";
 
 
-function NewServiceForm(){
-    const [dados, setDados] = useState<OrdemServico>({} as OrdemServico);
 
+function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServico) => void}){
+    const inicial: OrdemServico = { nome: "", modelo: "", defeito: "", status: "ABERTO" } as OrdemServico;
+    const [dados, setDados] = useState<OrdemServico>(inicial);
+
+    function aoClicar(){
+        if(dados.nome === "" || dados.modelo === "" || dados.defeito === ""){return alert('Campo obrigatório vazio!');}
+        adicionarOrdem(dados);
+        setDados(inicial);
+    }
+    
     return(
         <>
             <input
                 value={dados.nome}
                 onChange={(e) => setDados({ ...dados, nome: e.target.value })}
             />
-            
+
             <input
                 value={dados.modelo}
                 onChange={(e) => setDados({ ...dados, modelo: e.target.value })}
@@ -27,10 +35,10 @@ function NewServiceForm(){
                 value={dados.status}
                 onChange={(e) => setDados({ ...dados, status: e.target.value as OrdemServico["status"] })}>
                     <option value="ABERTO">Aberto</option>
-                    <option value="FECHADO">Finalizado</option>
+                    <option value="FINALIZADO">Finalizado</option>
             </select>
 
-            <button onClick={() => console.log(dados)}>
+            <button onClick={() => aoClicar()}>
                 Salvar
             </button>
 

@@ -5,32 +5,23 @@ import Header from "./components/Header";
 import NewServiceForm from "./components/NewServiceForm";
 
 
-const teste: OrdemServico = {
-  nome: "Bernardo",
-  modelo: "Galaxy S24",
-  defeito: "Tela quebrada",
-  status: "ABERTO"
-};
-
-const teste2: OrdemServico={
-  nome: "Joao",
-  modelo: 'ipod',
-  defeito: 'sem memoria',
-  status: 'FINALIZADO'
-};
-
 export function App() {
   
-  const [ordens, setOrdens] = useState<OrdemServico[]>([teste, teste2]);
+  const [lista, setLista] = useState<OrdemServico[]>([]);
   
+  function adicionarOrdem(novaOrdem: OrdemServico){
+    setLista((prev) => [...prev, novaOrdem]);
+  }
+
+
   return (
     <>
       <Header />
-      {ordens.map((ordem) => (
+      {lista.map((ordem) => (
         <ServiceCard key={ordem.nome}{...ordem} />
         ))
       }
-      <NewServiceForm />
+      <NewServiceForm adicionarOrdem={adicionarOrdem} />
     </>
   );
 }
