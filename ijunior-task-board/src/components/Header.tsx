@@ -1,6 +1,6 @@
 function Header(){
     return(
-        <strong>Interface do iRepair da iJunior</strong>
+        <header className="bg-blue-300 p-5 rounded-lg text-2xl font-serif">Interface do iRepair da iJúnior</header>
     )
 }
 

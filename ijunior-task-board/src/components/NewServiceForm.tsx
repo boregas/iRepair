@@ -15,30 +15,38 @@ function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServ
     }
     
     return(
-        <>
-            <input
+        <>  <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">NOME:</label>
+            <input 
+                className="bg-gray-300 px-4 py-1 rounded-full border"
                 value={dados.nome}
                 onChange={(e) => setDados({ ...dados, nome: e.target.value })}
             />
 
-            <input
+            <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">MODELO:</label>
+            <input 
+                className="bg-gray-300 px-4 py-1 rounded-full border"
                 value={dados.modelo}
                 onChange={(e) => setDados({ ...dados, modelo: e.target.value })}
             />
 
-            <input
+            <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">DEFEITO:</label>
+            <input 
+                className="bg-gray-300 px-4 py-1 rounded-full border"
                 value={dados.defeito}
                 onChange={(e) => setDados({ ...dados, defeito: e.target.value })}
             />
 
-            <select
+            <select 
+                className="bg-gray-300 px-2 py-2 m-4 font-serif border"
                 value={dados.status}
                 onChange={(e) => setDados({ ...dados, status: e.target.value as OrdemServico["status"] })}>
-                    <option value="ABERTO">Aberto</option>
-                    <option value="FINALIZADO">Finalizado</option>
+                    <option value="ABERTO">ABERTO</option>
+                    <option value="FINALIZADO">FINALIZADO</option>
             </select>
 
-            <button onClick={() => aoClicar()}>
+            <button 
+                className="bg-green-300 px-4 py-2 m-4 rounded-full font-serif border"
+                onClick={() => aoClicar()}>
                 Salvar
             </button>
 
