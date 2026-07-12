@@ -30,10 +30,11 @@ export function App() {
     <>
       <Header />
       <NewServiceForm adicionarOrdem={adicionarOrdem} />
-      {lista.map((ordem) => (
-      <ServiceCard key={ordem.nome} {...({ ...ordem, atualizarStatus })} />
-        ))
-      }
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {lista.map((ordem) => (
+        <ServiceCard key={ordem.nome} {...({ ...ordem, atualizarStatus })} />
+        ))}
+      </div> 
     </>
   );
 }

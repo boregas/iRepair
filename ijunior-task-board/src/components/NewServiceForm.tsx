@@ -15,9 +15,11 @@ function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServ
     }
     
     return(
-        <>  <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">NOME:</label>
+        <div className="flex-col flex md:flex-row items-center">  
+            
+            <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">NOME:</label>
             <input 
-                className="bg-gray-300 px-4 py-1 rounded-full border"
+                className="bg-gray-300 px-4 py-0.5 rounded-full border"
                 value={dados.nome}
                 onChange={(e) => setDados({ ...dados, nome: e.target.value })}
             />
@@ -50,7 +52,7 @@ function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServ
                 Salvar
             </button>
 
-        </>
+        </div>
     );
 
 }
