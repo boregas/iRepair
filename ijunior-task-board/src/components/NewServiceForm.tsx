@@ -15,7 +15,7 @@ function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServ
     }
     
     return(
-        <div className="flex-col flex md:flex-row items-center">  
+        <div className="flex-col flex md:flex-row flex-wrap items-center">  
             
             <label className="bg-gray-300 py-2 px-2 m-4 font-serif border">NOME:</label>
             <input 
@@ -47,7 +47,7 @@ function NewServiceForm({adicionarOrdem}: {adicionarOrdem: (novaOrdem: OrdemServ
             </select>
 
             <button 
-                className="bg-green-300 px-4 py-2 m-4 rounded-full font-serif border"
+                className="bg-green-300 px-4 py-2 m-2 rounded-full font-serif border"
                 onClick={() => aoClicar()}>
                 Salvar
             </button>
